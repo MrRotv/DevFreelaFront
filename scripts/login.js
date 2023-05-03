@@ -4,7 +4,7 @@ function checkIfAnyRoleIsChecked(){
 
     for(let radioButton of list){
         if (radioButton.checked === false) {
-            ccounter++;
+            counter++;
         }
     }
 
