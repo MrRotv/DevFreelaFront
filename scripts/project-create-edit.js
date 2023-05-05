@@ -1,14 +1,27 @@
 //Testa os parâmetros da URL
-const urlSearchParams = new URLSearchParams(window.location.search);
-const params = Object.fromEntries(urlSearchParams.entries());
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
 
 // Type: 'create' | 'edit'
-const screenType = params.id ? 'edit' : 'create';
+    const screenType = params.id ? 'edit' : 'create';
 
-window.onload = function(){
+    window.onload = function(){
 
     setScreenTypeText();
+    fillInputs();
 }
+
+    function fillInputs() {
+        if(screenType === 'edit') {
+            fetch(`https://64505d3ca322196911494a35.mockapi.io/api/projects/${params.id}`)
+            .then(response => response.json())
+            .then(project => {
+                document.querySelector('#title').value = project.title;
+                document.querySelector('#totalCost').value = project.totalCost;
+                document.querySelector('#description').value = project.description;
+            })
+        }
+    }
 
     function setScreenTypeText() {
     // MODO CRIAR
