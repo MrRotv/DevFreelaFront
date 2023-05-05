@@ -14,7 +14,6 @@ function checkIfAnyRoleIsChecked(){
 checkIfAnyRoleIsChecked();
 
 function cadastrar() {
-    console.log('Cadastro efetuado com sucesso!')
 
     // Pegar dados do form
 
@@ -42,12 +41,18 @@ function cadastrar() {
     })
     .then(response => response.json())
     .then(response => {
-        alert('Cadastrado com sucesso!');
+        
+        alert("Cadastrado com suscesso!");
+
+        localStorage.setItem("userName", response.fullName);
+        localStorage.setItem("role", response.role === "dev" ? "Desenvolvedor" : "Cliente");
+
+
+        window.location.href = "list.html";
+
     })
     .catch(error => {
         alert('Erro no servidor!');
         console.log(error);
     })
-
- 
 }

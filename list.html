@@ -47,7 +47,8 @@
 
     <!-- TRUMPS -->
 
-
+    <!-- SCRIPTS -->
+    <script src="scripts/list.js"></script>
 </head>
 
 <body>
@@ -63,8 +64,8 @@
 
                     <div class="user">
                             <div class="info">
-                                <span class="name">Vítor Oliveira</span>
-                                <span class="role">Desenvolvedor</span>
+                                <span id="name" class="name">Vítor Oliveira</span>
+                                <span id="role" class="role">Desenvolvedor</span>
                             </div>
 
                             <div class="photo-wrapper">
@@ -78,7 +79,7 @@
                 <div class="title-button">
                     <h1 class="title"> Projetos</h1>
                     <div class="button-wrapper">
-                        <button class="ld-button -small">Novo Projeto</button>
+                        <a href ="project-create-edit.html" class="ld-button -small">Novo Projeto</a>
                     </div>
                 </div>
 
@@ -92,29 +93,9 @@
                             </div>
                         </div>
 
-                        <div class="body">
-                            <div class="row">
-                                <div class="title-description">
-                                    <h6 class="title">Nome do Projeto</h6>
-                                    <p class="description">Descrição com certo nível de detalhe do projeto</p>
-                                </div>
-                                    <div class="price">R$ 1.000.000</div>
-                                <div class="actions">
-                                    <span class="edit material-icons">edit</span> 
-                                    <span class="delete material-icons">delete_outline</span>
-                                </div>
+                        <div class="body" id="table-body">
+                            
                             </div>
-
-                            <div class="row">
-                                <div class="title-description">
-                                    <h6 class="title">Nome do Projeto</h6>
-                                    <p class="description">Descrição com certo nível de detalhe do projeto</p>
-                                </div>
-                                    <div class="price">R$ 1.000.000</div>
-                                <div class="actions">
-                                    <span class="edit material-icons">edit</span> 
-                                    <span class="delete material-icons">delete_outline</span>
-                                </div>
                             </div>
 
                         </div>
