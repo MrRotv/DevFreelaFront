@@ -42,7 +42,7 @@
             title: document.querySelector("#title").value,
             totalCost: document.querySelector("#totalCost").value,
             description: document.querySelector("#description").value,
-            idClient: "1"
+            idClient: localStorage.getItem("#idClient")
         }
     
         fetch(`https://64505d3ca322196911494a35.mockapi.io/api/projects${screenType === 'edit' ? ('/' + params.id) : '' } `, {
