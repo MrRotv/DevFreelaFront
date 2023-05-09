@@ -18,7 +18,11 @@ function cadastrar() {
     // Pegar dados do form
 
     if(checkIfAnyRoleIsChecked() === false) {
-        alert('Marque algum perfil!')
+        Swal.fire(
+            'Algo deu errado',
+            'Marque um tipo de perfil Dev ou Cliente',
+            'error'
+          )
         return;
     }
 
@@ -42,17 +46,21 @@ function cadastrar() {
     .then(response => response.json())
     .then(response => {
         
-        alert("Cadastrado com suscesso!");
-
-        localStorage.setItem("userName", response.fullName);
-        localStorage.setItem("role", response.role === "dev" ? "Desenvolvedor" : "Cliente");
-
-
-        window.location.href = "list.html";
-
-    })
-    .catch(error => {
-        alert('Erro no servidor!');
-        console.log(error);
+        Swal.fire({
+            title: 'Bem vindo!',
+            text: 'Usuário cadastrado com sucesso',
+            icon: 'success',
+            confirmButtonColor: 'var(--ld-color-primary)',
+            confirmButtonText: 'Ok!'
+        }).then((result) => {
+            if(result.isConfirmed) {
+                localStorage.setItem("userName", response.fullName);
+                localStorage.setItem("role", response.role === "dev" ? "Desenvolvedor" : "Cliente");
+                localStorage.setItem("idClient", response.id);
+        
+        
+                window.location.href = "list.html";
+            }
+        })
     })
 }
